@@ -16,6 +16,10 @@ export class DragDropHandler {
     this.dragClone = null;
     this.dragData = null;
     
+    // Magnifier for touch
+    this.magnifier = document.getElementById('drag-magnifier');
+    this.magnifierCellClone = document.getElementById('magnifier-cell-clone');
+    
     this.init();
   }
 
@@ -169,6 +173,9 @@ export class DragDropHandler {
     // Create visual clone
     this.createDragClone(target, e.touches[0]);
     target.classList.add('letter-tile--dragging', 'cell--dragging');
+    
+    // Show magnifier for touch
+    this.showMagnifier(letter, e.touches[0]);
   }
 
   handleTouchMove(e) {
@@ -179,8 +186,13 @@ export class DragDropHandler {
     this.dragClone.style.left = `${touch.clientX - 20}px`;
     this.dragClone.style.top = `${touch.clientY - 20}px`;
 
-    // Highlight drop target
+    // Get element under touch point
     const elementUnder = document.elementFromPoint(touch.clientX, touch.clientY);
+    
+    // Update magnifier to show target cell info
+    this.updateMagnifierWithTarget(elementUnder, touch);
+
+    // Highlight drop target
     this.updateDropHighlight(elementUnder);
   }
 
@@ -252,7 +264,65 @@ export class DragDropHandler {
     }
     this.dragData = null;
 
+    // Hide magnifier
+    this.hideMagnifier();
+
     document.querySelectorAll('.cell--drag-over, .letter-pool--drag-over')
       .forEach(el => el.classList.remove('cell--drag-over', 'letter-pool--drag-over'));
+  }
+
+  // ============ MAGNIFIER METHODS ============
+  showMagnifier(letter, touch) {
+    if (!this.magnifier || !this.magnifierCellClone) return;
+    
+    // Position offset above finger (80px up for larger magnifier)
+    const x = touch.clientX;
+    const y = touch.clientY - 85;
+    
+    this.magnifier.style.left = `${x}px`;
+    this.magnifier.style.top = `${y}px`;
+    this.magnifier.style.transform = 'translate(-50%, -50%)';
+    
+    // Show with active class
+    this.magnifier.classList.add('is-active');
+  }
+
+  updateMagnifierWithTarget(elementUnder, touch) {
+    if (!this.magnifier || !this.magnifier.classList.contains('is-active')) return;
+    
+    // Update position
+    const x = touch.clientX;
+    const y = touch.clientY - 85;
+    
+    this.magnifier.style.left = `${x}px`;
+    this.magnifier.style.top = `${y}px`;
+    
+    // Check if hovering over a grid cell
+    const targetCell = elementUnder?.closest('.cell');
+    
+    if (targetCell && this.magnifierCellClone) {
+      // Clone the target cell visually
+      this.magnifierCellClone.innerHTML = '';
+      
+      const cellClone = targetCell.cloneNode(true);
+      
+      // Remove any drag-related classes from clone
+      cellClone.classList.remove('cell--drag-over', 'cell--dragging');
+      
+      // Add highlight to show it's the target
+      cellClone.classList.add('cell--highlighted');
+      
+      this.magnifierCellClone.appendChild(cellClone);
+    }
+  }
+
+  hideMagnifier() {
+    if (!this.magnifier) return;
+    this.magnifier.classList.remove('is-active');
+    
+    // Clear cloned content
+    if (this.magnifierCellClone) {
+      this.magnifierCellClone.innerHTML = '';
+    }
   }
 }

@@ -1,0 +1,74 @@
+// =============================================================================
+// DRAG MAGNIFIER - iOS-style visual magnifier for mobile touch drag
+// =============================================================================
+
+.drag-magnifier {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(240, 253, 250, 0.98));
+  backdrop-filter: blur(10px);
+  border: 3px solid $color-primary;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 8px 24px rgba(255, 107, 107, 0.2),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  
+  // Hide by default
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  
+  // Transitions
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  
+  // Active state
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  // Viewport for clipped content
+  &__viewport {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  // Cloned cell container
+  &__cell-clone {
+    transform: scale(2.2); // Magnify 2.2x
+    transform-origin: center center;
+    
+    // Ensure cloned cell renders properly
+    .cell {
+      width: 38px !important;  // Match actual mobile cell size
+      height: 38px !important;
+      min-width: 38px !important;
+      max-width: 38px !important;
+    }
+  }
+  
+  // Pointer/stem pointing down
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid $color-primary;
+  }
+}
