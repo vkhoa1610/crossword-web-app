@@ -306,13 +306,22 @@ export class DragDropHandler {
       // Clone the target cell visually
       this.magnifierCellClone.innerHTML = '';
       
-      const cellClone = targetCell.cloneNode(true);
+      // Create a div instead of cloning the td directly to avoid invalid HTML nesting
+      const cellClone = document.createElement('div');
       
-      // Remove any drag-related classes from clone
+      // Copy classes
+      cellClone.className = targetCell.className;
       cellClone.classList.remove('cell--drag-over', 'cell--dragging');
+      // Do NOT add cell--highlighted as it overrides the background color
       
-      // Add highlight to show it's the target
-      cellClone.classList.add('cell--highlighted');
+      // Copy content (letters, numbers)
+      cellClone.innerHTML = targetCell.innerHTML;
+      
+      // Explicitly copy important computed styles
+      const computedStyle = window.getComputedStyle(targetCell);
+      cellClone.style.backgroundColor = computedStyle.backgroundColor;
+      cellClone.style.backgroundImage = computedStyle.backgroundImage; // For black cells with patterns
+      cellClone.style.borderColor = computedStyle.borderColor;
       
       this.magnifierCellClone.appendChild(cellClone);
     }
