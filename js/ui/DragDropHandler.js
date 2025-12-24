@@ -186,8 +186,10 @@ export class DragDropHandler {
     this.dragClone.style.left = `${touch.clientX - 20}px`;
     this.dragClone.style.top = `${touch.clientY - 20}px`;
 
-    // Get element under touch point
+    // Temporarily hide drag clone to get element underneath
+    this.dragClone.style.pointerEvents = 'none';
     const elementUnder = document.elementFromPoint(touch.clientX, touch.clientY);
+    this.dragClone.style.pointerEvents = '';
     
     // Update magnifier to show target cell info
     this.updateMagnifierWithTarget(elementUnder, touch);
