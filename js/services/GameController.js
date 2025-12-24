@@ -8,8 +8,8 @@ import { gridGenerator } from './GridGenerator.js';
 
 export class GameController {
   constructor() {
-    this.minWords = 4;
-    this.maxWords = 6;
+    this.minWords = 1;
+    this.maxWords = 2;
     this.maxAttempts = 50;
   }
 
@@ -29,7 +29,7 @@ export class GameController {
       console.log(attempts);
       // Random word count between min and max
       const wordCount = Math.floor(Math.random() * (this.maxWords - this.minWords + 1)) + this.minWords;
-      const words = dictionaryService.getRandomWords(wordCount + 4); // Get extra for fallback
+      const words = dictionaryService.getRandomWords(wordCount + 3); // Get extra for fallback
       
       puzzle = gridGenerator.generate(words);
       
