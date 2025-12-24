@@ -20,7 +20,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   
   @media (min-width: 414px) {
-    max-height: 190px;
+    max-height: 50px;
   }
   
   @include respond-to(md) {
