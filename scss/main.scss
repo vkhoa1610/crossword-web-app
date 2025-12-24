@@ -1,0 +1,27 @@
+// =============================================================================
+// MAIN SCSS ENTRY POINT
+// Imports all partials in correct order
+// =============================================================================
+
+// 1. Abstracts - Variables, mixins, functions (no CSS output)
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+
+// 2. Base - Reset and base element styles
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+// 3. Components - Reusable component styles
+@import 'components/grid';
+@import 'components/clues';
+@import 'components/letter-pool';
+@import 'components/buttons';
+
+// 4. Layout - Page structure and layout
+@import 'layout/header';
+@import 'layout/main';
+
+// 5. Pages - Page-specific styles
+@import 'pages/game';

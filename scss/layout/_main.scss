@@ -1,0 +1,24 @@
+// =============================================================================
+// MAIN LAYOUT
+// Main container and layout structure
+// =============================================================================
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+  
+  @include respond-to(lg) {
+    padding: 0 $spacing-6;
+  }
+}
+
+.main-layout {
+  display: grid;
+  gap: $spacing-6;
+  
+  @include respond-to(lg) {
+    grid-template-columns: 1fr 380px;
+    gap: $spacing-8;
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "words": [
+    { "word": "ORIGIN", "definition": "The point or place where something begins" },
+    { "word": "VIVID", "definition": "Producing powerful and clear images in the mind" },
+    { "word": "TRANQUIL", "definition": "Calm and peaceful" },
+    { "word": "FRAGMENT", "definition": "A small broken piece of something" },
+    { "word": "CEREMONY", "definition": "A formal public event" },
+    { "word": "EMPATHY", "definition": "The ability to understand others' feelings" },
+    { "word": "SUSTAIN", "definition": "To keep something going or maintain it over time" },
+    { "word": "HERITAGE", "definition": "Cultural traditions passed from past generations" },
+    { "word": "AMBITION", "definition": "A strong desire to achieve something" },
+    { "word": "PROSPERITY", "definition": "A state of wealth or success" },
+    { "word": "MAGNIFICENT", "definition": "Very beautiful or impressive" },
+    { "word": "INNOVATION", "definition": "A new idea, method, or invention" },
+    { "word": "PHENOMENON", "definition": "An observable event or fact" },
+    { "word": "COLLABORATE", "definition": "To work together on a project" },
+    { "word": "CONSEQUENCE", "definition": "A result or effect of an action" },
+    { "word": "TRANSMISSION", "definition": "The act of sending or passing something" },
+    { "word": "INTEGRATION", "definition": "The process of combining parts into a whole" },
+    { "word": "APPRECIATION", "definition": "Recognition of value or quality" },
+    { "word": "VULNERABILITY", "definition": "The state of being open to harm" },
+    { "word": "MISUNDERSTAND", "definition": "To fail to interpret something correctly" }
+  ]
+}

@@ -1,0 +1,52 @@
+// =============================================================================
+// BASE - Background & Base Styles
+// =============================================================================
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  min-height: 100vh;
+  
+  // Fun gradient background with pattern
+  background: linear-gradient(135deg, #FFF5F5 0%, #F0FDFA 50%, #FEF3C7 100%);
+  background-attachment: fixed;
+  
+  // Optional: Add subtle pattern overlay
+  position: relative;
+  
+  @include custom-scrollbar;
+}
+
+// Fun colorful scrollbar for kids
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FEE2E2;
+  border-radius: $radius-full;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, $color-primary, $color-orange);
+  border-radius: $radius-full;
+  border: 2px solid #FEE2E2;
+}
+
+::selection {
+  background: $color-accent;
+  color: $color-text-primary;
+}
+
+:focus-visible {
+  outline: 3px solid $color-primary;
+  outline-offset: 2px;
+  border-radius: $radius-md;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}

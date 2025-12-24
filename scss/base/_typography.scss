@@ -1,0 +1,42 @@
+// =============================================================================
+// TYPOGRAPHY - Typography
+// =============================================================================
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+
+// Headings - Fun and bold
+h1, .h1 {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  line-height: $line-height-tight;
+  
+  @include respond-to(md) {
+    font-size: calc($font-size-4xl * 1.2);
+  }
+}
+
+h2, .h2 {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+h3, .h3 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+h4, .h4 {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+// Text utilities
+.text-primary { color: $color-text-primary; }
+.text-secondary { color: $color-text-secondary; }
+.text-muted { color: $color-text-muted; }
+.text-accent { color: $color-primary; }
+.text-center { text-align: center; }

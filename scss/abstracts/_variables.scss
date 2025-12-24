@@ -1,0 +1,117 @@
+// =============================================================================
+// VARIABLES - 🌈 KIDS THEME - Bright & Playful!
+// =============================================================================
+
+// 🎨 Primary Colors - Fun Rainbow Palette
+$color-primary: #FF6B6B;       // Coral Red - Chủ đạo
+$color-primary-light: #FF8E8E;
+$color-primary-dark: #E85555;
+
+$color-secondary: #4ECDC4;     // Turquoise
+$color-accent: #FFE66D;        // Sunny Yellow
+$color-purple: #A78BFA;        // Lavender Purple
+$color-orange: #FF9F43;        // Orange
+$color-pink: #FF6B9D;          // Pink
+
+$color-success: #2DD4BF;       // Teal Green ✓
+$color-success-light: #5EEAD4;
+
+$color-error: #FB7185;         // Soft Red ✗
+$color-error-light: #FDA4AF;
+
+$color-warning: #FBBF24;       // Yellow
+
+// 🌤️ Backgrounds - Bright & Light
+$color-bg-dark: #FFF5F5;       // Very light pink/cream
+$color-bg-medium: #FFFFFF;
+$color-bg-light: #F0FDFA;      // Mint tint
+
+$color-surface: #FFFFFF;
+$color-surface-hover: #FFF1F2;
+
+// 📝 Text - High contrast
+$color-text-primary: #374151;
+$color-text-secondary: #6B7280;
+$color-text-muted: #9CA3AF;
+
+$color-border: #E5E7EB;
+
+$color-highlight: #FDE047;     // Bright yellow highlight
+$color-highlight-bg: rgba(253, 224, 71, 0.5);
+
+// 🧩 Grid Colors
+$color-cell-white: #FFFFFF;
+$color-cell-black: #E5E7EB;    // Light gray for blocked cells
+$color-cell-correct: #D1FAE5;  // Light green
+$color-cell-incorrect: #FECACA; // Light red
+
+// 🔤 Typography - Rounded, kid-friendly fonts
+$font-family-base: 'Nunito', 'Quicksand', -apple-system, sans-serif;
+$font-family-mono: 'Fredoka', 'Nunito', sans-serif;
+
+// Larger sizes for kids
+$font-size-xs: 0.875rem;   // 14px
+$font-size-sm: 1rem;       // 16px
+$font-size-base: 1.125rem; // 18px
+$font-size-lg: 1.25rem;    // 20px
+$font-size-xl: 1.5rem;     // 24px
+$font-size-2xl: 1.875rem;  // 30px
+$font-size-3xl: 2.25rem;   // 36px
+$font-size-4xl: 3rem;      // 48px
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$line-height-tight: 1.25;
+$line-height-base: 1.5;
+$line-height-relaxed: 1.75;
+
+// 📏 Spacing
+$spacing-1: 0.25rem;
+$spacing-2: 0.5rem;
+$spacing-3: 0.75rem;
+$spacing-4: 1rem;
+$spacing-5: 1.25rem;
+$spacing-6: 1.5rem;
+$spacing-8: 2rem;
+$spacing-10: 2.5rem;
+$spacing-12: 3rem;
+$spacing-16: 4rem;
+
+// 🔘 Border Radius - Extra rounded for playful feel
+$radius-sm: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+$radius-2xl: 2rem;
+$radius-full: 9999px;
+
+// 🌟 Shadows - Soft, colorful shadows
+$shadow-sm: 0 2px 4px rgba(255, 107, 107, 0.1);
+$shadow-md: 0 4px 12px rgba(255, 107, 107, 0.15);
+$shadow-lg: 0 8px 24px rgba(255, 107, 107, 0.2);
+$shadow-xl: 0 12px 32px rgba(255, 107, 107, 0.25);
+$shadow-glow: 0 0 20px rgba(255, 107, 107, 0.4);
+
+// Fun cell shadow
+$shadow-cell: 3px 3px 0px rgba(0, 0, 0, 0.1);
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Transitions - Bouncy!
+$transition-fast: 150ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$transition-base: 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$transition-slow: 350ms ease;
+
+// Z-index
+$z-dropdown: 1000;
+$z-modal: 1100;
+$z-tooltip: 1200;
+$z-drag: 1300;

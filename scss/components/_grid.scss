@@ -1,0 +1,187 @@
+// =============================================================================
+// GRID COMPONENT - Crossword Grid
+// =============================================================================
+$letter-colors: (
+  A: #FF6B6B,
+  B: #FF9F43,
+  C: #FECA57,
+  D: #48DBFB,
+  E: #A78BFA,
+  F: #FF6B9D,
+  G: #FF6B6B,
+  H: #FF9F43,
+  I: #FECA57,
+  J: #48DBFB,
+  K: #A78BFA,
+  L: #FF6B9D,
+  M: #FF6B6B,
+  N: #FF9F43,
+  O: #FECA57,
+  P: #48DBFB,
+  Q: #A78BFA,
+  R: #FF6B9D,
+  S: #FF6B6B,
+  T: #FF9F43,
+  U: #FECA57,
+  V: #48DBFB,
+  W: #A78BFA,
+  X: #FF6B9D,
+  Y: #FF6B6B,
+  Z: #FF9F43,
+);
+@each $letter, $color in $letter-colors {
+  .cell__letter[data-letter="#{$letter}"] {
+    color: darken($color, 12%);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+}
+.crossword-grid {
+  border-collapse: separate;
+  border-spacing: 4px;
+  background: transparent;
+  margin: 0 auto;
+}
+
+.cell {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  border-radius: $radius-lg;
+  transition: all $transition-base;
+  user-select: none;
+  
+  @include respond-to(md) {
+    width: 56px;
+    height: 56px;
+  }
+  
+  // Black/blocked cell - pattern
+  &--black {
+    background: repeating-linear-gradient(
+      45deg,
+      #E5E7EB,
+      #E5E7EB 4px,
+      #F3F4F6 4px,
+      #F3F4F6 8px
+    );
+    border-radius: $radius-lg;
+  }
+  
+  // White/active cell
+  &--white {
+    background: $color-cell-white;
+    border: 3px solid $color-primary;
+    cursor: pointer;
+    box-shadow: $shadow-cell, $shadow-md;
+    
+    &:hover {
+      border-color: $color-orange;
+      transform: scale(1.08) rotate(-1deg);
+      box-shadow: $shadow-lg;
+    }
+  }
+  
+  // Highlighted state
+  &--highlighted {
+    background: $color-accent !important;
+    border-color: $color-orange !important;
+    transform: scale(1.05);
+    animation: pulse 0.6s ease-in-out infinite;
+    
+    // .cell__letter {
+    //   color: $color-text-primary;
+    // }
+  }
+  
+  // Correct answer
+  &--correct {
+    background: $color-cell-correct !important;
+    border-color: $color-success !important;
+    animation: celebrate 0.5s ease;
+    
+    .cell__letter {
+      color: #059669;
+    }
+  }
+  
+  // Incorrect answer
+  &--incorrect {
+    background: $color-cell-incorrect !important;
+    border-color: $color-error !important;
+    animation: shake 0.4s ease-in-out;
+    
+    .cell__letter {
+      color: #DC2626;
+    }
+  }
+  
+  // Drag over state
+  &--drag-over {
+    border-color: $color-purple !important;
+    background: rgba($color-purple, 0.2) !important;
+    transform: scale(1.1) rotate(2deg);
+  }
+  
+  // Dragging state
+  &--dragging {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  
+  // Selected state for click-to-fill
+  &--selected {
+    border-color: $color-purple !important;
+    background: rgba($color-purple, 0.15) !important;
+    box-shadow: 0 0 0 3px rgba($color-purple, 0.3), $shadow-md !important;
+    animation: pulse-select 1s ease-in-out infinite;
+  }
+
+  // Clue number
+  &__number {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    font-size: 11px;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    line-height: 1;
+  }
+  
+  // Letter content
+  &__letter {
+    @include flex-center;
+    width: 100%;
+    height: 100%;
+    font-family: $font-family-mono;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+
+    text-transform: uppercase;
+    
+    @include respond-to(md) {
+      font-size: $font-size-2xl;
+    }
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px) rotate(-2deg); }
+  40%, 80% { transform: translateX(4px) rotate(2deg); }
+}
+
+@keyframes celebrate {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15) rotate(5deg); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(253, 224, 71, 0.7); }
+  50% { box-shadow: 0 0 0 8px rgba(253, 224, 71, 0); }
+}
+
+@keyframes pulse-select {
+  0%, 100% { box-shadow: 0 0 0 3px rgba($color-purple, 0.3), $shadow-md; }
+  50% { box-shadow: 0 0 0 3px rgba($color-purple, 0.6), $shadow-md; }
+}

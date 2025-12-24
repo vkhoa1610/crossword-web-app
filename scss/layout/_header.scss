@@ -1,0 +1,50 @@
+// =============================================================================
+// HEADER - 🎪 Fun Title for Kids
+// =============================================================================
+
+.header {
+  padding: $spacing-6 $spacing-4;
+  text-align: center;
+  
+  @include respond-to(md) {
+    padding: $spacing-8 $spacing-6;
+  }
+  
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: $spacing-2;
+    
+    // Rainbow gradient text
+    background: linear-gradient(
+      90deg, 
+      #FF6B6B 0%, 
+      #FF9F43 20%, 
+      #FECA57 40%, 
+      #48DBFB 60%, 
+      #A78BFA 80%, 
+      #FF6B9D 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    // Text shadow for depth (doesn't work with gradient, but adds emoji support)
+    filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.1));
+    
+    @include respond-to(md) {
+      font-size: $font-size-4xl;
+    }
+  }
+  
+  &__subtitle {
+    color: $color-text-secondary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    
+    @include respond-to(md) {
+      font-size: $font-size-lg;
+    }
+  }
+}

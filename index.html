@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive crossword puzzle game - drag and drop letters to solve the puzzle">
+  <title>Crossword Puzzle | Interactive Word Game</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="header__title">Crossword Puzzle</h1>
+      <p class="header__subtitle">Drag letters to fill the grid and solve the clues</p>
+    </header>
+
+    <!-- Main Game Layout -->
+    <main class="main-layout">
+      <!-- Grid Section -->
+      <section class="game__grid-section">
+        <!-- Crossword Grid -->
+        <div class="game__grid-wrapper" id="grid-container"></div>
+      </section>
+
+      <!-- Clues Section -->
+      <aside class="game__clues-section">
+        <!-- Across Clues -->
+        <div class="clues">
+          <h2 class="clues__title">Across</h2>
+          <div id="across-clues"></div>
+        </div>
+
+        <!-- Down Clues -->
+        <div class="clues">
+          <h2 class="clues__title">Down</h2>
+          <div id="down-clues"></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Sticky Bottom Bar with Letters and Actions -->
+  <div class="letter-pool-wrapper">
+    <div class="letter-pool-container">
+      <div class="sticky-bar">
+        <div class="sticky-bar__letters">
+          <div class="letter-pool-header">
+            <span class="letter-pool-header__title">Letters</span>
+            <div class="letter-pool-header__controls">
+              <span class="letter-pool-header__count" id="letter-count"></span>
+              <button class="btn-pin" id="btn-pin" title="Pin panel open">📌</button>
+            </div>
+          </div>
+          <div class="letter-pool" id="letter-pool"></div>
+        </div>
+        <div class="sticky-bar__actions">
+          <button class="btn btn--success" id="btn-check">✓ Check</button>
+          <button class="btn btn--secondary" id="btn-reset">↻ New Game</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ES Modules -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

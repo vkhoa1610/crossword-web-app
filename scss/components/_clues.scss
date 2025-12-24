@@ -1,0 +1,81 @@
+// =============================================================================
+// CLUES - Clue Cards
+// =============================================================================
+
+.clues {
+  background: white;
+  padding: $spacing-5;
+  border-radius: $radius-2xl;
+  border: 3px solid $color-border;
+  box-shadow: 5px 5px 0 rgba(0,0,0,0.08);
+  
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $spacing-4;
+    padding-bottom: $spacing-3;
+    border-bottom: 3px dashed $color-accent;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    
+    // Fun emoji prefix
+    &::before {
+      font-size: $font-size-xl;
+    }
+  }
+}
+
+// Different colors for Across vs Down
+#across-clues .clues__title::before {
+  content: '👉';
+}
+
+#down-clues .clues__title::before {
+  content: '👇';
+}
+
+.clue-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: $spacing-2;
+  
+  @include respond-to(lg) {
+    max-height: 350px;
+  }
+  
+  &__item {
+    padding: $spacing-3 $spacing-4;
+    border-radius: $radius-lg;
+    background: $color-bg-light;
+    color: $color-text-primary;
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+    cursor: pointer;
+    transition: all $transition-base;
+    border: 2px solid transparent;
+    
+    &:hover {
+      background: $color-accent;
+      transform: translateX(4px);
+      border-color: $color-orange;
+    }
+    
+    &--highlighted {
+      background: $color-accent !important;
+      border-color: $color-orange !important;
+      transform: scale(1.02);
+      font-weight: $font-weight-semibold;
+    }
+  }
+  
+  &__number {
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-right: $spacing-1;
+  }
+}

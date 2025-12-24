@@ -1,0 +1,23 @@
+// =============================================================================
+// FUNCTIONS
+// SCSS utility functions
+// =============================================================================
+
+// Convert px to rem
+@function rem($px) {
+  @return calc($px / 16) * 1rem;
+}
+
+// Darken/lighten by percentage
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// Get spacing value
+@function space($multiplier) {
+  @return $spacing-1 * $multiplier;
+}
