@@ -53,14 +53,14 @@ $letter-colors: (
   aspect-ratio: 1 / 1;
   // Small phones (375px+)
   @media (min-width: 375px) {
-    width: 23px;  // Increased from 40px
-    height: 21px;
+    width: 30px;  // Increased from 40px
+    height: 30px;
   }
   
   // Larger phones (414px+)
   @media (min-width: 414px) {
-    width: 23px;  // Increased from 44px
-    height: 21px;
+    width: 30px;  // Increased from 44px
+    height: 30px;
   }
   
   // Tablets (768px+)

@@ -25,13 +25,16 @@ export class GridGenerator {
    */
   generate(words) {
     this.reset();
-    
+    const MAX_ACROSS = 10;
     // Sort by length descending for better placement
     const sortedWords = [...words].sort((a, b) => b.word.length - a.word.length);
     
     // Place first word horizontally at origin
     if (sortedWords.length > 0) {
-      this.placeWord(sortedWords[0], 0, 0, 'across');
+      const firstWord = sortedWords[0];
+      const direction =
+        firstWord.word.length > MAX_ACROSS ? 'down' : 'across';
+      this.placeWord(firstWord, 0, 0, direction);
     }
 
     // Try to place remaining words
@@ -76,6 +79,7 @@ export class GridGenerator {
 
   findPossiblePlacements(word) {
     const placements = [];
+    const MAX_COL = 10;
     word = word.toUpperCase();
 
     // Iterate over all placed characters
@@ -84,20 +88,25 @@ export class GridGenerator {
         // Check each position in the new word
         for (let i = 0; i < word.length; i++) {
           if (word[i] !== existingChar) continue;
-
+          const acrossStartCol = c - i;
           // Try placing horizontally (across)
-          const acrossStart = { row: r, col: c - i };
-          if (this.canPlace(word, acrossStart.row, acrossStart.col, 'across')) {
-            const intersections = this.countIntersections(word, acrossStart.row, acrossStart.col, 'across');
-            if (intersections > 0) {
-              placements.push({
-                row: acrossStart.row,
-                col: acrossStart.col,
-                direction: 'across',
-                intersections
-              });
+          if (word.length <= MAX_COL &&
+            acrossStartCol >= 0 &&
+            acrossStartCol + word.length <= MAX_COL) {
+            const acrossStart = { row: r, col: c - i };
+            if (this.canPlace(word, acrossStart.row, acrossStart.col, 'across')) {
+              const intersections = this.countIntersections(word, acrossStart.row, acrossStart.col, 'across');
+              if (intersections > 0) {
+                placements.push({
+                  row: acrossStart.row,
+                  col: acrossStart.col,
+                  direction: 'across',
+                  intersections
+                });
+              }
             }
           }
+
 
           // Try placing vertically (down)
           const downStart = { row: r - i, col: c };

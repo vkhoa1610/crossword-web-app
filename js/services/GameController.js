@@ -8,7 +8,7 @@ import { gridGenerator } from './GridGenerator.js';
 
 export class GameController {
   constructor() {
-    this.minWords = 1;
+    this.minWords = 2;
     this.maxWords = 2;
     this.maxAttempts = 50;
   }
