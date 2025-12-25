@@ -76,22 +76,6 @@ Then visit: http://localhost:8080
 
 No installation or build steps required!
 
-Project Structure
-textcrossword-web-app/
-├── css/              # Compiled CSS
-├── data/
-│   └── dictionary.json   # Vocabulary data (easy to edit)
-├── js/
-│   ├── models/           # GameState, CellModel, WordModel
-│   ├── services/         # DictionaryService, GameController, GridGenerator
-│   └── ui/               # Renderers and handlers (Grid, Clue, LetterPool, DragDrop, etc.)
-├── scss/                 # Source styles (optional)
-├── index.html
-└── README.md
-
-Contributing
-Feel free to fork and submit pull requests!
-Ideas for improvement:
 
 Add difficulty levels
 Include sound effects
