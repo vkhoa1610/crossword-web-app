@@ -4,6 +4,7 @@ A simple, interactive crossword puzzle web application designed to help users le
 Built entirely with vanilla JavaScript — no third-party libraries or frameworks.
 
 Live Demo
+https://vkhoa1610.github.io/crossword-web-app/
 
 Features
 
@@ -27,27 +28,6 @@ Answer Checking: Button to validate, green for correct, red for incorrect.
 
 Dictionary (20 words)
 The app uses the following words (stored in data/dictionary.json):
-
-origin – the point or place where something begins
-vivid – producing powerful and clear images in the mind
-tranquil – calm and peaceful
-fragment – a small broken piece of something
-ceremony – a formal public event
-empathy – the ability to understand others' feelings
-sustain – to keep something going or maintain it over time
-heritage – cultural traditions passed from past generations
-ambition – a strong desire to achieve something
-prosperity – a state of wealth or success
-magnificent – very beautiful or impressive
-innovation – a new idea, method, or invention
-phenomenon – an observable event or fact
-collaborate – to work together on a project
-consequence – a result or effect of an action
-transmission – the act of sending or passing something
-integration – the process of combining parts into a whole
-appreciation – recognition of value or quality
-vulnerability – the state of being open to harm
-misunderstand – to fail to interpret something correctly
 
 Technologies Used
 
