@@ -9,7 +9,8 @@ body {
   min-height: 100vh;
   
   // Fun gradient background with pattern
-  background: linear-gradient(135deg, #FFF5F5 0%, #F0FDFA 50%, #FEF3C7 100%);
+  background: url('../assets/images/background-lands.png') center/cover no-repeat fixed,
+  linear-gradient(135deg, #FFF5F5 0%, #F0FDFA 50%, #FEF3C7 100%);
   background-attachment: fixed;
   
   // Optional: Add subtle pattern overlay
@@ -18,6 +19,14 @@ body {
   @include custom-scrollbar;
 }
 
+@media (max-width: 768px) {
+  body {
+    background:
+      url('../assets/images/background-ori.png') center / cover no-repeat,
+      linear-gradient(135deg, #FFF5F5 0%, #F0FDFA 50%, #FEF3C7 100%);
+    background-attachment: scroll;
+  }
+}
 // Fun colorful scrollbar for kids
 ::-webkit-scrollbar {
   width: 12px;
