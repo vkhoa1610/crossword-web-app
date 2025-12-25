@@ -15,7 +15,7 @@
   box-shadow: 0 -4px 20px rgba(255, 107, 107, 0.15);
   
   // Collapsed state - mobile needs space for buttons too!
-  max-height: 180px; // Increased to show buttons
+  max-height: 50px; // Increased to show buttons
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   
